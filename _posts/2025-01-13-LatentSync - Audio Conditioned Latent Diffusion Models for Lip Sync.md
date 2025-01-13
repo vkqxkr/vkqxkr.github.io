@@ -1,5 +1,5 @@
 ---
-title: LatentSync: Audio Conditioned Latent Diffusion Models for Lip Sync
+title: LatentSync - Audio Conditioned Latent Diffusion Models for Lip Sync
 tags: TeXt
 hidden: false
 ---
