@@ -8,7 +8,7 @@ If you see this page, that means you have setup your site. enjoy! :ghost: :ghost
 
 # Related Work
 ## Diffusion-based Lip Sync
-`Diff2lip`, `DiffusionVideoEditing`asdf
+`Diff2lip`, `DiffusionVideoEditing`
 
 > Diff2lip [Soumik Mukhopadhyay, Saksham Suri, Ravi Teja Gadde, and Abhinav Shrivastava. Diff2lip: Audio conditioned diffusion models for lip-synchronization. In Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision, pages 5292–5302, 2024.](https://arxiv.org/pdf/2308.09716)
 
