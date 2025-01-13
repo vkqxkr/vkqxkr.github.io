@@ -6,4 +6,15 @@ hidden: false
 
 If you see this page, that means you have setup your site. enjoy! :ghost: :ghost: :ghost:
 
-You may want to [config the site](https://kitian616.github.io/jekyll-TeXt-theme/docs/en/configuration) or [writing a post](https://kitian616.github.io/jekyll-TeXt-theme/docs/en/writing-posts) next. Please feel free to [create an issue](https://github.com/kitian616/jekyll-TeXt-theme/issues) or [send me email](mailto:kitian616@outlook.com) if you have any questions.
+# Related Work
+## Diffusion-based Lip Sync
+`Diff2lip`, `DiffusionVideoEditing`
+
+> Diff2lip
+>> [Soumik Mukhopadhyay, Saksham Suri, Ravi Teja Gadde, and Abhinav Shrivastava. Diff2lip: Audio conditioned diffusion models for lip-synchronization. In Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision, pages 5292–5302, 2024.](https://arxiv.org/pdf/2308.09716)
+
+> DiffusionVideoEditing
+>> [Dan Bigioi, Shubhajit Basak, Michał Stypułkowski, Maciej Zieba, Hugh Jordan, Rachel McDonnell, and Peter Corcoran. Speech driven video editing via an audio-conditioned diffusion model. Image and Vision Computing, 142:104911, 2024.](https://arxiv.org/pdf/2301.04474)
+
+## Non-diffusion-based Lip Sync
+`Wav2Lip`
