@@ -6,7 +6,7 @@ hidden: false
 
 # 1. Introduction
 
-![Figure 1. Frameworks comparison between previous diffusion-based lip sync methods and our method.](../assets/images/2025-01-13-LatentSync-Audio-Conditioned-Latent-Diffusion-Models-for-Lip-Sync/fig1.png)
+![Figure 1. Frameworks comparison between previous diffusion-based lip sync methods and our method.](./2025-01-13-LatentSync-Audio-Conditioned-Latent-Diffusion-Models-for-Lip-Sync/fig1.png)
 
 # 2. Related Work
 ## 2.1. Diffusion-based Lip Sync
