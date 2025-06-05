@@ -14,7 +14,7 @@ tags: [favicon]
 
 애플리케이션이 아래 사진과 같이 구조를 가지고 있다고 가정해보자
 
-![전체 구조](../assets/img/posts/application-failure/1.png){: width="60%" height="60%"}
+![전체 구조](../assets/img/posts/application-failure/1.png){: width="60%" height="60%"}{: .center}
 
 In the next step, the webpage will show all usage scenarios. You can keep the default options, scroll to the bottom of the page, and click the button <kbd>Generate your Favicons and HTML code</kbd> to generate the favicon.
 
