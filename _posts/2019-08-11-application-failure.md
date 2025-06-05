@@ -8,34 +8,20 @@ tags: [favicon]
 
 ## 애플리케이션 오류 접근 방법
 
-전체 구조를 생각하여 어디서부터 접근할 것인지 생각
+전체 구조를 생각하여 어떻게 접근할 것인지 생각
 
 ## 예시
 
-애플리케이션이 아래 사진과 같이 구조를 가지고 있다고 가정해보자
+애플리케이션이 아래 사진과 같이 구조를 가지고 있다고 가정해보자.
 
 ![전체 구조](../assets/img/posts/application-failure/1.png){: width="60%" height="60%"}{: .center}
 
-In the next step, the webpage will show all usage scenarios. You can keep the default options, scroll to the bottom of the page, and click the button <kbd>Generate your Favicons and HTML code</kbd> to generate the favicon.
+사용자가 애플리케이션에 접근하는데 문제가 발생하였을때, 아래와 같이 사용자단에서부터 확인해보자.
 
-## Download & Replace
+먼저 curl 명령어를 사용해서 WEB-Service에 접근가능한지 확인한다.
 
-Download the generated package, unzip and delete the following two from the extracted files:
+![전체 구조](../assets/img/posts/application-failure/2.png){: width="80%" height="80%"}{: .center}
 
-- `browserconfig.xml`{: .filepath}
-- `site.webmanifest`{: .filepath}
+Connection time out이 발생했으니 WEB-Service와 WEB간의 연결이 잘 되어있는지 확인한다.
 
-And then copy the remaining image files (`.PNG`{: .filepath} and `.ICO`{: .filepath}) to cover the original files in the directory `assets/img/favicons/`{: .filepath} of your Jekyll site. If your Jekyll site doesn't have this directory yet, just create one.
-
-The following table will help you understand the changes to the favicon files:
-
-| File(s)             | From Online Tool                  | From Chirpy |
-|---------------------|:---------------------------------:|:-----------:|
-| `*.PNG`             | ✓                                 | ✗           |
-| `*.ICO`             | ✓                                 | ✗           |
-
-<!-- markdownlint-disable-next-line -->
->  ✓ means keep, ✗ means delete.
-{: .prompt-info }
-
-The next time you build the site, the favicon will be replaced with a customized edition.
+![전체 구조](../assets/img/posts/application-failure/3.png){: width="90%" height="90%"}{: .center}
