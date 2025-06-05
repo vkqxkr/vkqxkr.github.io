@@ -484,7 +484,6 @@ header {
 .content > p > img {
   @include bp.lte(bp.get(md)) {
     max-width: calc(100% + 1rem);
-    justify-content: center;
   }
 }
 

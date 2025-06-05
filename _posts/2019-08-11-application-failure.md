@@ -1,12 +1,11 @@
 ---
 title: Application Failure
 description: >-
-  Certified Kubernetes Administrator (CKA) with Practice Tests 강의<br>
-  Troubleshooting
-author: JinHyouk Park
+  CKA with Practice Tests 강의 Application Failure 요약
+author: jinhyouk park
 date: 2019-08-11 00:34:00 +0800
 categories: [DevOps, Kubernetes]
-tags: [favicon]
+tags: [Certificate, CKA, Kubernetes]
 ---
 
 ## 애플리케이션 오류 접근 방법
