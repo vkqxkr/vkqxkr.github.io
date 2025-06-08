@@ -9,31 +9,26 @@ tags: [Certificate, CKA, Kubernetes]
 ---
 
 
-![img](../assets/img/posts/2025-06-06-worker-node-failure/1.png){: width="100%" height="100%"}{: .center}
+쿠버네티스는 다양한 CNI(Container Network Interface)를 지원한다.
 
-특정 노드의 상태에 문제가 생겼으면 해당 노드에 대해 확인한다.
+아래는 대표적인 3가지이다.
 
-![img](../assets/img/posts/2025-06-06-worker-node-failure/2.png){: width="100%" height="100%"}{: .center}
+| 플러그인    | 설치 명령어                                                                                                                                        | 특징                |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| Weave Net | ```kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml```                                    | -                 |
+| Flannel   | ```kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/2140ac876ef134e0ed5af15c65e414cf26827915/Documentation/kube-flannel.yml``` | NetworkPolicy **미지원** |
+| Calico    | ```curl https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml \| kubectl apply -f -```                           | NetworkPolicy **지원**  |
 
-상태에 따라 Status의 각 플래그는 true, false, unknown으로 설정된다.
+여러 개의 CNI 설정 파일이 있을 경우 kubelet은 /etc/cni/net.d/에서 사전순으로 가장 이름이 먼저 나오는 CNI 설정 파일을 사용한다.
 
-- 노드에 디스크 공간이 부족하면 OutOfDisk 플래그가 true로 된다.
-- 메모리가 부족할 경우 MemoryPressure 플래그가 true로 된다.
-- 디스크 용량이 낮으면 DiskPressure 플래그가 true로 된다.
-- 실행 중인 프로세스가 너무 많을 경우 PIDPressure 플래그가 true로 된다.
-- 그 외 워커노드가 마스터노드와 통신을 멈추면 플래그는 unknown으로 된다.
+```yaml
+    Command:
+      /usr/local/bin/kube-proxy
+      --config=/var/lib/kube-proxy/config.conf
+      --hostname-override=$(NODE_NAME)
+```
 
-플래그가 unknown일 경우, 노드가 손실되었을 가능성이 있을 수 있기 때문에 lastHeartbeatTime 필드를 확인해서 노드가 마지막으로 응단한 시점을 파악한다.
-
-이후, 해당 정보를 바탕으로 노드 자체의 상태를 아래와 같이 확인한다.
-노드가 여전히 온라인 상태인지, 아니면 충돌했는지 확인합니다.
-- 충돌했다면, 다시 부팅한다.
-- 노드의 CPU, 메모리, 디스크 공간 등 리소스 상태를 확인한다.
-  ![img](../assets/img/posts/2025-06-06-worker-node-failure/3.png){: width="100%" height="100%"}{: .center}
-- kubelet 서비스의 상태도 점검하세요.
-  ![img](../assets/img/posts/2025-06-06-worker-node-failure/4.png){: width="100%" height="100%"}{: .center}
-- kubelet의 로그를 확인해 문제가 있는지 살펴보세요.
-  ![img](../assets/img/posts/2025-06-06-worker-node-failure/5.png){: width="100%" height="100%"}{: .center}
-- kubelet 인증서도 확인한다.
-  - 인증서가 만료되지 않았는지, 적절한 그룹에 속해 있는지, 올바른 CA(Certificate Authority) 로부터 발급받았는지 검증한다.
-    ![img](../assets/img/posts/2025-06-06-worker-node-failure/6.png){: width="100%" height="100%"}{: .center}
+```kube-proxy``` 와 관련된 문제를 해결하는 방법은 아래와 같다.
+1. kube-proxy 파드의 상태를 확인한다.
+2. kube-proxy 로그를 확인한다.
+3. configmap을 확인한다.
